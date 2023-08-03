@@ -1,1 +1,2 @@
-print("Placeholder")
+def vigenereCipher(plainText, key):
+  print("Placeholder")
