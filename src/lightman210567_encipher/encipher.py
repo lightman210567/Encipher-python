@@ -15,6 +15,22 @@ def extendKey(targetLength, key):
       keyPosition += 1
   return "".join(keyList)
 
+def stringToNumbers(string):
+  alphabet = " abcdefghijklmnopqrstuvwxyz"
+  numberList = []
+  for letter in string:
+    number = alphabet.find(letter)
+    numberList.append(number)
+  return numberList
+
+def numbersToString(numbers):
+  alphabet = " abcdefghijklmnopqrstuvwxyz"
+  letterList = []
+  for number in numbers:
+    letter = alphabet[int(number)]
+    letterList.append(letter)
+  return "".join(letterList)
+
 def vigenereCipher(plainText, key):
   plainTextLength = len(plainText)
   keyLength = len(key)
