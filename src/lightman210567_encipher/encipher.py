@@ -20,7 +20,7 @@ def rebuildKey(plainText, key):
 def stringToNumbers(string):
   alphabet = "abcdefghijklmnopqrstuvwxyz"
   numberList = []
-  for letter in string:
+  for letter in string.lower():
     if letter == " ":
       number = 1000
     else:
@@ -39,9 +39,8 @@ def numbersToString(numbers):
     letterList.append(letter)
   return "".join(letterList)
 
-def vigenereCipher(plainText, key):
+def vigenereCipher(plainText, key, encrypt = True):
   plainTextLength = len(plainText)
-  keyLength = len(key)
   key = rebuildKey(plainText, key)
 
   numberList = stringToNumbers(plainText)
@@ -55,7 +54,10 @@ def vigenereCipher(plainText, key):
     if plainNumber == 1000:
       cipherNumbers.append(1000)
     else:
-      shiftedNumber = (plainNumber + shift) % 26
+      if encrypt == True:
+        shiftedNumber = (plainNumber + shift) % 26
+      else:
+        shiftedNumber = (plainNumber - shift) % 26
       cipherNumbers.append(shiftedNumber)
 
   cipherText = numbersToString(cipherNumbers)
