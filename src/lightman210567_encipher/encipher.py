@@ -1,12 +1,11 @@
-def extendKey(plainText, key):
+def rebuildKey(plainText, key):
   targetLength = len(plainText)
-  difference = targetLength - len(key)
-  keyList = list(key)
   keyBoundary = (len(key) - 1)
 
-  i = len(key)
+  newKey = []
+
   keyPosition = 0
-  while difference > 0:
+  for i in range(0, targetLength):
     if plainText[i] == " ":
       keyToAdd = " "
     else:
@@ -15,11 +14,8 @@ def extendKey(plainText, key):
         keyPosition = 0
       else:
         keyPosition += 1
-    keyList.append(keyToAdd)
-    difference -= 1
-    i += 1
-
-  return "".join(keyList)
+    newKey.append(keyToAdd)
+  return "".join(newKey)
 
 def stringToNumbers(string):
   alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -46,8 +42,7 @@ def numbersToString(numbers):
 def vigenereCipher(plainText, key):
   plainTextLength = len(plainText)
   keyLength = len(key)
-  if plainTextLength > keyLength:
-    key = extendKey(plainText, key)
+  key = rebuildKey(plainText, key)
 
   numberList = stringToNumbers(plainText)
   numericKey = stringToNumbers(key)
@@ -65,6 +60,3 @@ def vigenereCipher(plainText, key):
 
   cipherText = numbersToString(cipherNumbers)
   return cipherText
-
-test = vigenereCipher("this is a test of the vigenere cipher", "secure")
-print(test)
