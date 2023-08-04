@@ -13,10 +13,11 @@ def extendKey(targetLength, key):
       keyPosition = 0
     else:
       keyPosition += 1
+
   return "".join(keyList)
 
 def stringToNumbers(string):
-  alphabet = " abcdefghijklmnopqrstuvwxyz"
+  alphabet = "abcdefghijklmnopqrstuvwxyz"
   numberList = []
   for letter in string:
     number = alphabet.find(letter)
@@ -24,7 +25,7 @@ def stringToNumbers(string):
   return numberList
 
 def numbersToString(numbers):
-  alphabet = " abcdefghijklmnopqrstuvwxyz"
+  alphabet = "abcdefghijklmnopqrstuvwxyz"
   letterList = []
   for number in numbers:
     letter = alphabet[int(number)]
@@ -36,4 +37,19 @@ def vigenereCipher(plainText, key):
   keyLength = len(key)
 
   if plainTextLength > keyLength:
-    extendKey(plainTextLength, key)
+    key = extendKey(plainTextLength, key)
+
+  numberList = stringToNumbers(plainText)
+  numericKey = stringToNumbers(key)
+
+  cipherNumbers = []
+  
+  for i in range(0, plainTextLength):
+    plainNumber = numberList[i]
+    shift = numericKey[i]
+    
+    shiftedNumber = (plainNumber + shift) % 26
+    cipherNumbers.append(shiftedNumber)
+
+  cipherText = numbersToString(cipherNumbers)
+  return cipherText
