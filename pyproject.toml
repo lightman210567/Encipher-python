@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "encipher_lightman210567"
-version = "1.1.0"
+name = "encipherpy"
+version = "1.2.0"
 authors = [
 {name = "lightman210567", email = "81330314+lightman210567@users.noreply.github.com"}]
 description = "A package containing the implementation of the vigenere cipher. More ciphers will be added in future versions."
