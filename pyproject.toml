@@ -5,7 +5,8 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "encipher_lightman210567"
 version = "1.0.0"
-authors = [{"lightman210567", "81330314+lightman210567@users.noreply.github.com"}]
+authors = [
+{name = "lightman210567", email = "81330314+lightman210567@users.noreply.github.com"}]
 description = "A package containing the implementation of the vigenere cipher. More ciphers will be added in future versions."
 readme = "README.md"
 requires-python = ">=3.10"
