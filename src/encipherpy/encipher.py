@@ -76,6 +76,3 @@ def caesarCipher(plainText, key):
 
   cipherText = numbersToString(cipherNumbers)
   return cipherText
-
-test = caesarCipher("hello world", 13)
-print(test)
