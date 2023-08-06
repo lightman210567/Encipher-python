@@ -1,5 +1,5 @@
-from internal.string_number_convert import stringToNumbers, numbersToString
-from internal.rebuild_key import rebuildKey
+from .internal.string_number_convert import stringToNumbers, numbersToString
+from encipherpy.internal.rebuild_key import rebuildKey
 
 def vigenereCipher(plainText, key, encrypt = True):
   plainTextLength = len(plainText)
