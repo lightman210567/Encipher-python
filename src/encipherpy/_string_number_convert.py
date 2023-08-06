@@ -1,4 +1,4 @@
-def stringToNumbers(string):
+def _stringToNumbers(string):
   alphabet = "abcdefghijklmnopqrstuvwxyz"
   numberList = []
   for letter in string.lower():
@@ -9,7 +9,7 @@ def stringToNumbers(string):
     numberList.append(number)
   return numberList
 
-def numbersToString(numbers):
+def _numbersToString(numbers):
   alphabet = "abcdefghijklmnopqrstuvwxyz"
   letterList = []
   for number in numbers:
