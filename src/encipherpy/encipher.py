@@ -68,8 +68,14 @@ def caesarCipher(plainText, key):
   cipherNumbers = []
 
   for number in numberText:
-    shiftedNumber = (number + key) % 26
-    cipherNumbers.append(shiftedNumber)
+    if number == 1000:
+      cipherNumbers.append(1000)
+    else:
+      shiftedNumber = (number + key) % 26
+      cipherNumbers.append(shiftedNumber)
 
   cipherText = numbersToString(cipherNumbers)
   return cipherText
+
+test = caesarCipher("hello world", 13)
+print(test)
