@@ -1,4 +1,5 @@
-from .internal.string_number_convert import stringToNumbers, numbersToString
+from _string_number_convert import _stringToNumbers as stringToNumbers
+from _string_number_convert import _numbersToString as numbersToString
 
 def caesarCipher(plainText, key):
   numberText = stringToNumbers(plainText)

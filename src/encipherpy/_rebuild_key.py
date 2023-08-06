@@ -1,4 +1,4 @@
-def rebuildKey(plainText, key):
+def _rebuildKey(plainText, key):
   targetLength = len(plainText)
   keyBoundary = (len(key) - 1)
 
