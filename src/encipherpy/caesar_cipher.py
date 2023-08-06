@@ -1,9 +1,3 @@
-
-
-
-
-
-
 def caesarCipher(plainText, key):
   numberText = stringToNumbers(plainText)
   cipherNumbers = []
