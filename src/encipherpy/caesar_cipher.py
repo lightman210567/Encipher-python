@@ -1,3 +1,5 @@
+from internal.string_number_convert import stringToNumbers, numbersToString
+
 def caesarCipher(plainText, key):
   numberText = stringToNumbers(plainText)
   cipherNumbers = []
