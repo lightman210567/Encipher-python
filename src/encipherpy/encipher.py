@@ -62,3 +62,14 @@ def vigenereCipher(plainText, key, encrypt = True):
 
   cipherText = numbersToString(cipherNumbers)
   return cipherText
+
+def caesarCipher(plainText, key):
+  numberText = stringToNumbers(plainText)
+  cipherNumbers = []
+
+  for number in numberText:
+    shiftedNumber = (number + key) % 26
+    cipherNumbers.append(shiftedNumber)
+
+  cipherText = numbersToString(cipherNumbers)
+  return cipherText
