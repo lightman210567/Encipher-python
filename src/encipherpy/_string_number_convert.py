@@ -31,5 +31,5 @@ def _asciiToString(asciiNumbers):
   letterList = []
   for number in asciiNumbers:
     letter = chr(number)
-    letters.append(letter)
+    letterList.append(letter)
   return "".join(letterList)
