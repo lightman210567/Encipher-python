@@ -6,11 +6,14 @@ def rot47(plainText):
   cipherNumbers = []
 
   for number in asciiNumbers:
-    shiftedNumber = number + 47
-    shiftedNumber = shiftedNumber % 126
-    if shiftedNumber < 33:
-      shiftedNumber = shiftedNumber + 32
-    cipherNumbers.append(shiftedNumber)
+    if number == 32:
+      cipherNumbers.append(32)
+    else:
+      shiftedNumber = number + 47
+      shiftedNumber = shiftedNumber % 126
+      if shiftedNumber < 33:
+        shiftedNumber = shiftedNumber + 32
+      cipherNumbers.append(shiftedNumber)
 
   cipherText = asciiToString(cipherNumbers)
   print(asciiNumbers)
