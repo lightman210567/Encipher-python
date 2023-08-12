@@ -1,5 +1,5 @@
-from _string_number_convert import _stringToAscii as stringToAscii
-from _string_number_convert import _asciiToString as asciiToString
+from ._string_number_convert import _stringToAscii as stringToAscii
+from ._string_number_convert import _asciiToString as asciiToString
 
 def rot47(plainText):
   asciiNumbers = stringToAscii(plainText)
