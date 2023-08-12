@@ -9,7 +9,9 @@ def rot47(plainText):
     if number == 32:
       cipherNumbers.append(32)
     else:
-      shiftedNumber = (number + 47) % 126
+      shiftedNumber = number + 47
+      if shiftedNumber != 126:
+        shiftedNumber = shiftedNumber % 126
       if shiftedNumber < 94:
         shiftedNumber = shiftedNumber + 32
       cipherNumbers.append(shiftedNumber)
