@@ -1,7 +1,7 @@
 from ._string_number_convert import _stringToNumbers as stringToNumbers
 from ._string_number_convert import _numbersToString as numbersToString
 
-def caesarCipher(plainText, key):
+def caesarCipher(plainText, key, encrypt = True):
   numberText = stringToNumbers(plainText)
   cipherNumbers = []
 
@@ -9,7 +9,10 @@ def caesarCipher(plainText, key):
     if number == 1000:
       cipherNumbers.append(1000)
     else:
-      shiftedNumber = (number + key) % 26
+      if encrypt:
+        shiftedNumber = (number + key) % 26
+      else:
+        shiftedNumber = (number - key) % 26
       cipherNumbers.append(shiftedNumber)
 
   cipherText = numbersToString(cipherNumbers)
