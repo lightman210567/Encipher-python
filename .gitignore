@@ -159,5 +159,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# the file containing replit-only dev code
+# replit
 src/encipherpy/replit.py
+.replit
+replit.nix
