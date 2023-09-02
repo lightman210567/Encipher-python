@@ -1,6 +1,11 @@
-from ._string_number_convert import _stringToNumbers as stringToNumbers
-from ._string_number_convert import _numbersToString as numbersToString
-from ._rebuild_key import _rebuildKey as rebuildKey
+try: # attempt a relative import of the required modules
+  from ._string_number_convert import _stringToNumbers as stringToNumbers
+  from ._string_number_convert import _numbersToString as numbersToString
+  from ._rebuild_key import _rebuildKey as rebuildKey
+except: # if relative import fails, use a direct import instead
+  from _string_number_convert import _stringToNumbers as stringToNumbers
+  from _string_number_convert import _numbersToString as numbersToString
+  from _rebuild_key import _rebuildKey as rebuildKey
 
 def vigenereCipher(plainText, key, encrypt = True):
   plainTextLength = len(plainText)
