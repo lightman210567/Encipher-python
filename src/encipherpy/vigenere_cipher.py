@@ -39,5 +39,4 @@ def vigenereCipher(plainText, key, encrypt = True):
 
   cipherText = numbersToString(cipherNumbers)
   cipherText = restorePunctuation(cipherText, punctuation)
-  print(cipherText)
   return cipherText
