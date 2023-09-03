@@ -1,25 +1,16 @@
-try: # attempt a relative import of the required modules
-  from ._string_number_convert import _stringToAscii as stringToAscii
-  from ._string_number_convert import _asciiToString as asciiToString
-except: # if relative import fails, use a direct import instead
-  from _string_number_convert import _stringToAscii as stringToAscii
-  from _string_number_convert import _asciiToString as asciiToString
-
-# TODO rework rot47 code to use an alphabet string rather than mathematic operations
 def rot47(plainText):
-  asciiNumbers = stringToAscii(plainText)
-  cipherNumbers = []
+  alphabet = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
 
-  for number in asciiNumbers:
-    if number == 32:
-      cipherNumbers.append(32)
+  cipherText = []
+
+  for character in plainText:
+    if character == " ":
+      cipherText.append(" ")
     else:
-      shiftedNumber = number + 47
-      if shiftedNumber != 126:
-        shiftedNumber = shiftedNumber % 126
-      if shiftedNumber < 94:
-        shiftedNumber = shiftedNumber + 32
-      cipherNumbers.append(shiftedNumber)
+      index = alphabet.find(character)
+      shiftedIndex = (index + 47) % 94
+      cipherCharacter = alphabet[shiftedIndex]
+      cipherText.append(cipherCharacter)
 
-  cipherText = asciiToString(cipherNumbers)
+  cipherText = "".join(cipherText)
   return cipherText
