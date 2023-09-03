@@ -4,6 +4,8 @@ def _stringToNumbers(string):
   for letter in string.lower():
     if letter == " ":
       number = 1000
+    elif letter == "#": # punctuation placeholder character
+      number = 1001
     else:
       number = alphabet.find(letter)
     numberList.append(number)
@@ -15,6 +17,8 @@ def _numbersToString(numbers):
   for number in numbers:
     if number == 1000:
       letter = " "
+    elif number == 1001: # punctuation placeholder character
+      letter = "#"
     else:
       letter = alphabet[int(number)]
     letterList.append(letter)

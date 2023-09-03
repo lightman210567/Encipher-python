@@ -8,6 +8,8 @@ def _rebuildKey(plainText, key):
   for i in range(0, targetLength):
     if plainText[i] == " ":
       keyToAdd = " "
+    elif plainText[i] == "#": # check for punctuation placeholders
+      keyToAdd = "#"
     else:
       keyToAdd = key[keyPosition]
       if keyPosition == keyBoundary:
