@@ -1,5 +1,17 @@
+try: # attempt a relative import of the required modules
+  from ._punctuation import _detectPunctuation as detectPunctuation
+  from ._punctuation import _removePunctuation as removePunctuation
+  from ._punctuation import _restorePunctuation as restorePunctuation
+except: # if relative import fails, use a direct import instead
+  from _punctuation import _detectPunctuation as detectPunctuation
+  from _punctuation import _removePunctuation as removePunctuation
+  from _punctuation import _restorePunctuation as restorePunctuation
+
 def atbashCipher(plainText):
   plainText = plainText.lower()
+  punctuation = detectPunctuation(plainText)
+  plainText = removePunctuation(plainText, punctuation)
+
   cipherLetters = []
   
   for letter in plainText:
@@ -58,6 +70,9 @@ def atbashCipher(plainText):
         cipherLetters.append("a")
       case " ":
         cipherLetters.append(" ")
+      case "#":
+        cipherLetters.append("#")
 
   cipherText = "".join(cipherLetters)
+  cipherText = restorePunctuation(cipherLetters, punctuation)
   return cipherText
