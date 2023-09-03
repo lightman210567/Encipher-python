@@ -11,7 +11,7 @@ def _detectPunctuation(plainText):
 def _removePunctuation(plainText, punctuationList):
     plainText = list(plainText)
     for i in range(len(punctuationList)):
-        listItem = punctuationList[i]
+        listItem = punctuationList[i].split["-"] # get the item from the list, then split it into the index and char values
         index = int(listItem[0])
         plainText[index] = "#" # replace the punctuation with a hashtag
     return plainText # return the modified plain text
