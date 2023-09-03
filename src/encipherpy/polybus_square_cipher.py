@@ -1,4 +1,4 @@
-def polybusSquare(plainText):
+def polybusSquare(plainText, encrypt = True):
     square = [
         ["a", "b", "c", "d", "e"],
         ["f", "g", "h", "i", "k"],
@@ -8,12 +8,17 @@ def polybusSquare(plainText):
     ]
     cipherText = []
 
-    for letter in plainText:
-        if letter != " ":
+    if encrypt == True:
+        for letter in plainText:
             index = findInSquare(square, letter)
             cipherText.append(index)
-        else:
-            cipherText.append(" ")
+    else:
+        for i in range(0, len(plainText), 2):
+            row = int(plainText[i]) - 1
+            column = int(plainText[i + 1]) - 1
+            letter = square[row][column]
+            cipherText.append(letter)
+
     cipherText = "".join(cipherText)
     return cipherText
         
