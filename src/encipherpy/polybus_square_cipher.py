@@ -7,15 +7,21 @@ def polybusSquare(plainText, encrypt = True):
         ["v", "w", "x", "y", "z"]
     ]
     cipherText = []
+    plainTextList = []
+
+    # remove all spaces from the plain text
+    for character in plainText:
+        if character != " ":
+            plainTextList.append(character)
 
     if encrypt == True:
-        for letter in plainText:
+        for letter in plainTextList:
             index = findInSquare(square, letter)
             cipherText.append(index)
     else:
-        for i in range(0, len(plainText), 2):
-            row = int(plainText[i]) - 1
-            column = int(plainText[i + 1]) - 1
+        for i in range(0, len(plainTextList), 2):
+            row = int(plainTextList[i]) - 1
+            column = int(plainTextList[i + 1]) - 1
             letter = square[row][column]
             cipherText.append(letter)
 
