@@ -23,17 +23,3 @@ def _numbersToString(numbers):
       letter = alphabet[int(number)]
     letterList.append(letter)
   return "".join(letterList)
-
-def _stringToAscii(string):
-  asciiNumbers = []
-  for letter in string:
-    number = ord(letter)
-    asciiNumbers.append(number)
-  return asciiNumbers
-
-def _asciiToString(asciiNumbers):
-  letterList = []
-  for number in asciiNumbers:
-    letter = chr(number)
-    letterList.append(letter)
-  return "".join(letterList)
