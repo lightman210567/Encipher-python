@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "encipherpy"
-version = "2.1.1"
+version = "2.2.0"
 authors = [
 {name = "lightman210567", email = "81330314+lightman210567@users.noreply.github.com"}]
 description = "A package containing the implementation of multiple ciphers."
